@@ -1,9 +1,8 @@
-import os
 import streamlit as st
 from requests import get
 import pandas as pd
 #API Key: Stored as environment variable
-nasa_key = os.environ.get("NASA_OPEN_API_KEY")
+nasa_key = st.secrets["nasa_key"]
 notifications = get(f"https://api.nasa.gov/DONKI/notifications?api_key={nasa_key}").json()
 
 st.set_page_config(page_title="Space Weather Notifications", page_icon="📷")
@@ -11,7 +10,7 @@ st.set_page_config(page_title="Space Weather Notifications", page_icon="📷")
 st.markdown("# Space Weather Notifications")
 st.sidebar.header("Space Weather Notifications")
 st.write(
-    """This page shows the notifications of space weather events from NASA. The amount of each event 
+    """This page shows the notifications of space weather events from NASA. The amount of each weather event 
         within the span of the past month can be seen in the chart below."""
 )
 #Bar Chart of Number of events per month

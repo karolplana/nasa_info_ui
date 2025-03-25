@@ -1,9 +1,8 @@
-import os
 import streamlit as st
 from requests import get
 
 #API Key: Stored as environment variable
-nasa_key = os.environ.get("NASA_OPEN_API_KEY")
+nasa_key = st.secrets["nasa_key"]
 #st.secrets
 
 st.set_page_config(page_title="Astronomy Picture of the Day", page_icon="📷")
