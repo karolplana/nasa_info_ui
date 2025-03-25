@@ -35,6 +35,11 @@ def get_apod(api_key: str, my_date: str) -> None:
         st.error(f"An unexpected error occurred: {str(e)}")
 
 def get_notifications(api_key: str) -> dict:
+    """
+    :Purpose: Queries the NASA DONKI API to get the notification information.
+    :param api_key: String containing the NASA API key.
+    :return: Dictionary containing the json notification data.
+    """
     try:
         notifications = get(f"https://api.nasa.gov/DONKI/notifications?api_key={api_key}").json()
         return notifications
