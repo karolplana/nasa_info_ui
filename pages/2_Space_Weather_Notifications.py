@@ -1,12 +1,11 @@
 import streamlit as st
 import pandas as pd
-import os
 from data import get_notifications
 
 st.set_page_config(page_title="Space Weather Notifications", page_icon="🛰️")
 
 #API Key: Stored as environment variable
-nasa_key = os.getenv("NASA_API_KEY")
+nasa_key = st.secrets("nasa_key")
 notifications = get_notifications(nasa_key)
 
 st.markdown("# 🛰️Space Weather Notifications🛰️")
