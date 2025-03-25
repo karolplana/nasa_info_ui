@@ -5,7 +5,7 @@ from data import get_notifications
 st.set_page_config(page_title="Space Weather Notifications", page_icon="🛰️")
 
 #API Key: Stored as environment variable
-nasa_key = st.secrets("nasa_key")
+nasa_key = st.secrets["nasa_key"]
 notifications = get_notifications(nasa_key)
 
 st.markdown("# 🛰️Space Weather Notifications🛰️")

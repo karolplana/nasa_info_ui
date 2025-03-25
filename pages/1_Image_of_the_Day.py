@@ -14,7 +14,7 @@ st.write(
 st.divider()
 
 #API Key: Stored as environment variable
-nasa_key = st.secrets("nasa_key")
+nasa_key = st.secrets["nasa_key"]
 #Parameter for user to select the date of the image they would like to view
 #defaults to today's date.
 my_date = st.date_input("Date")
