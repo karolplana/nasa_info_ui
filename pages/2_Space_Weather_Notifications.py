@@ -1,18 +1,20 @@
 import streamlit as st
-from requests import get
 import pandas as pd
+from data import get_notifications
+
+st.set_page_config(page_title="Space Weather Notifications", page_icon="🛰️")
+
 #API Key: Stored as environment variable
 nasa_key = st.secrets["nasa_key"]
-notifications = get(f"https://api.nasa.gov/DONKI/notifications?api_key={nasa_key}").json()
+notifications = get_notifications(nasa_key)
 
-st.set_page_config(page_title="Space Weather Notifications", page_icon="📷")
-
-st.markdown("# Space Weather Notifications")
+st.markdown("# 🛰️Space Weather Notifications🛰️")
 st.sidebar.header("Space Weather Notifications")
 st.write(
     """This page shows the notifications of space weather events from NASA. The amount of each weather event 
         within the span of the past month can be seen in the chart below."""
 )
+
 #Bar Chart of Number of events per month
 event_types = ["CME", "GST", "IPS", "FLR", "SEP", "MPC", "RBE", "HSS"]
 event_counts = {event: 0 for event in event_types}
@@ -44,8 +46,6 @@ event_name_table = pd.DataFrame(
 
 # Display the dataframe without the index column
 st.dataframe(event_name_table, hide_index=True)
-# Add stats for each event type
-#https://docs.streamlit.io/develop/api-reference/layout/st.expander
 for notification in notifications:
     st.subheader(f"{notification["messageIssueTime"]} : {notification["messageType"]}", divider="gray")
     with st.expander("Notification Details"):
