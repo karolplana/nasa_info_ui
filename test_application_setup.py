@@ -1,4 +1,6 @@
 from src.data import *
+import streamlit as st
+
 nasa_key = st.secrets["nasa_key"]
 
 def test_get_aopd():
