@@ -47,6 +47,6 @@ event_name_table = pd.DataFrame(
 # Display the dataframe without the index column
 st.dataframe(event_name_table, hide_index=True)
 for notification in notifications:
-    st.subheader(f"{notification["messageIssueTime"]} : {notification["messageType"]}", divider="gray")
+    st.subheader(f"{notification['messageIssueTime']} : {notification['messageType']}", divider="gray")
     with st.expander("Notification Details"):
         st.write(notification["messageBody"])
