@@ -1,4 +1,5 @@
 import streamlit as st
+
 st.set_page_config(
     page_title="Space Information UI",
     page_icon="⭐",
@@ -15,3 +16,4 @@ st.markdown(
     https://api.nasa.gov/
     """
 )
+st.image("src/meme.jpg")
