@@ -1,5 +1,5 @@
 import streamlit as st
-from src.data import get_apod
+from main.data import get_apod
 
 st.set_page_config(page_title="Astronomy Picture of the Day", page_icon="📷")
 
