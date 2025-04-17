@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 from requests import get
-#from src.data import get_notifications
 def get_notifications(api_key: str) -> dict:
     """
     :Purpose: Queries the NASA DONKI API to get the notification information.
