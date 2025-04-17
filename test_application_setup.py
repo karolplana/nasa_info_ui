@@ -1,4 +1,4 @@
-from src.data import *
+from main.data import *
 import streamlit as st
 
 nasa_key = st.secrets["nasa_key"]
