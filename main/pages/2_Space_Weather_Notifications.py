@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from src.data import get_notifications
+from main.data import get_notifications
 
 st.set_page_config(page_title="Space Weather Notifications", page_icon="🛰️")
 
