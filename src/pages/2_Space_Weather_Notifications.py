@@ -1,6 +1,18 @@
 import streamlit as st
 import pandas as pd
-from src.data import get_notifications
+from requests import get
+#from src.data import get_notifications
+def get_notifications(api_key: str) -> dict:
+    """
+    :Purpose: Queries the NASA DONKI API to get the notification information.
+    :param api_key: String containing the NASA API key.
+    :return: Dictionary containing the json notification data.
+    """
+    try:
+        notifications = get(f"https://api.nasa.gov/DONKI/notifications?api_key={api_key}").json()
+        return notifications
+    except ValueError as e:
+        st.error(f"Error: {str(e)}")
 
 st.set_page_config(page_title="Space Weather Notifications", page_icon="🛰️")
 
