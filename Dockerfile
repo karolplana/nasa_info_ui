@@ -3,4 +3,4 @@ WORKDIR /nasa_info_ui
 COPY . /nasa_info_ui
 RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 8501
-CMD ["streamlit", "run", "./main/Space_Information.py", "--server.port=8501", "--server.address=0.0.0.0"]
+CMD ["streamlit", "run", "./src/Space_Information.py", "--server.port=8501", "--server.address=0.0.0.0"]
